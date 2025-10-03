@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     // 1. CONFIGURAÇÕES GLOBAIS E LIMITES
     // ===================================
-    const DESTINATION_PHONE = '5565999999999'; // <-- 🚨 SUBSTITUA AQUI PELO SEU NÚMERO DE TELEFONE COM DDD
+    const DESTINATION_PHONE = '5565984063195'; // <-- 🚨 SUBSTITUA AQUI PELO SEU NÚMERO DE TELEFONE COM DDD
     const EXTRA_LIMIT = 2; // Máximo de adicionais pagos
     const FRUIT_LIMIT = 5; // Máximo de frutas grátis
     const FIDELITY_GOAL = 10; // Meta de pedidos para o cartão fidelidade
