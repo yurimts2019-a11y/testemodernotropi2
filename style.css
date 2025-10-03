@@ -243,11 +243,26 @@ input[type="number"] { width: 100px; text-align: center; } /* Mantido o ajuste d
 /* ======================================= */
 /* Chips Modernos e Coloridos (Modal) */
 /* ======================================= */
+
+/* NOVO: Espaçamento entre grupos de opções no modal */
+.modal-content .salada-box .grupo-opcoes {
+    margin-bottom: 20px; 
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+/* NOVO: Remove a borda e padding do último item para não ter separação dupla com a observação */
+.modal-content .salada-box .grupo-opcoes:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 15px; 
+}
+
+
 .opcoes {
     display: flex;
     flex-wrap: wrap; 
     gap: 10px; 
-    margin-bottom: 15px;
+    margin-bottom: 0; /* Removido margem desnecessária aqui */
 }
 
 .opcoes input[type="checkbox"],
@@ -536,7 +551,7 @@ input[type="number"] { width: 100px; text-align: center; } /* Mantido o ajuste d
     background-color: #e53935; /* Cor do selo de recompensa (vermelho) */
     border-color: #c62828;
     color: white;
-    font-size: 1em;
+    font-size: 1.6em; /* Aumentei o troféu */
     box-shadow: 0 0 8px rgba(198, 40, 40, 0.7);
 }
 .fidelity-message {
