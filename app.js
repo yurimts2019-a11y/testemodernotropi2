@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     // 1. CONFIGURAÇÕES GLOBAIS E LIMITES
     // ===================================
-    const DESTINATION_PHONE = '5565984063195'; // <-- 🚨 SUBSTITUA AQUI PELO SEU NÚMERO DE TELEFONE COM DDD
+    const DESTINATION_PHONE = '5565999999999'; // <-- 🚨 SUBSTITUA AQUI PELO SEU NÚMERO DE TELEFONE COM DDD
     const EXTRA_LIMIT = 2; // Máximo de adicionais pagos
     const FRUIT_LIMIT = 5; // Máximo de frutas grátis
     const FIDELITY_GOAL = 10; // Meta de pedidos para o cartão fidelidade
@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
             currency: 'BRL'
         }).format(value);
     };
+    
+    // Utility para formatar o status de fidelidade em estrelas (NOVO)
+    function generateFidelityStars(count, goal) {
+        const completedStars = '⭐'.repeat(count);
+        // Usamos um círculo branco para representar pedidos restantes, fica melhor no WhatsApp
+        const remainingDashes = '⚪'.repeat(goal - count); 
+        return completedStars + remainingDashes;
+    }
 
     // 1.1 DADOS DO CARDÁPIO (LISTAS ATUALIZADAS)
     const tamanhos = [
@@ -201,8 +209,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Apenas 'tamanho' é rádio. Todos os outros são checkbox.
         if (input.type === 'radio') {
-             // Esta seção teoricamente só é usada para seleção de tamanho, 
-             // mas mantemos aqui por segurança, se o modal fosse mais dinâmico.
              const itemTamanho = tamanhos.find(t => t.nome === nome);
              if (itemTamanho) {
                 itemAtual.tamanho = itemTamanho;
@@ -454,9 +460,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (i < FIDELITY_GOAL) {
                 className = i <= count ? 'completed' : '';
             } else {
-                // Último selo é a recompensa
+                // Último selo é a recompensa (AGORA COM TROFÉU)
                 className = count >= FIDELITY_GOAL ? 'reward' : '';
-                content = count >= FIDELITY_GOAL ? '🏆' : 'RECOMPENSA';
+                content = count >= FIDELITY_GOAL ? '🏆' : '🏆';
             }
             
             sealsGrid.innerHTML += `
@@ -554,7 +560,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         whatsappText += `*TOTAL GERAL DO PEDIDO: ${formatCurrency(totalPedido)}*\n\n`;
         
-        // Mensagem de Fidelidade
+        // Mensagem de Fidelidade (AGORA EM FORMATO DE ESTRELAS)
         if (isRewardOrder) {
              whatsappText += `🏆 *PEDIDO RECOMPENSA:* Este pedido foi um presente! 🎁\n`;
              // Reseta o contador após a recompensa
@@ -563,9 +569,11 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             const count = clientData.ordersCount;
             const remaining = FIDELITY_GOAL - count;
+            const starStatus = generateFidelityStars(count, FIDELITY_GOAL);
+            
             whatsappText += `🏆 *CARTÃO FIDELIDADE VIRTUAL:*\n`;
-            whatsappText += `Você acaba de completar o pedido *${count}* de ${FIDELITY_GOAL}!\n`;
-            whatsappText += remaining > 0 ? `Faltam apenas ${remaining} para a sua recompensa!` : `🥳 Parabéns! Você já pode resgatar sua recompensa no próximo pedido!`;
+            whatsappText += `Status: ${starStatus}\n`;
+            whatsappText += remaining > 0 ? `Faltam apenas ${remaining} pedidos para resgatar sua recompensa!` : `🥳 Parabéns! Você já pode resgatar sua recompensa no próximo pedido!`;
         }
 
 
