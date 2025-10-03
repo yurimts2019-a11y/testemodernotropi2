@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR" class="page-transition">
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Delícias Tropicana - Cardápio Moderno</title>
+    
+    <link rel="manifest" href="manifest.json">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=8"> 
+</head>
+<body class="fade-page">
+    
+    <header class="main-header">
+        <div class="top-bar">
+            <button class="menu-btn">☰</button> 
+            <button class="search-btn">🔍</button> 
+        </div>
+        <div class="banner-image">
+            <img src="image_2d4108.jpg" alt="Banner de Frutas Delícias Tropicana" loading="lazy">
+        </div>
+        <div class="logo-circle">
+            <img src="icon-192.png" alt="Logo Delícias Tropicana" loading="lazy">
+        </div>
+        <div class="store-info">
+            <h1 class="store-name">Delícias Tropicana - Pedidos</h1>
+            <p class="store-status">Fechado</p> 
+            <div class="delivery-details">
+                <span>🛵 Entrega em até 60 min</span> |
+                <span>Taxa de Entrega: R$5,00</span>
+                <a href="#" class="more-details">Ver mais</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="menu">
+            <h2>Monte Sua Salada</h2>
+            <div id="sizeSelectionContainer">
+                </div>
+
+            <h2 style="margin-top: 30px;">Seu Pedido</h2>
+            <div class="cards" id="cardsContainer">
+                <p style="text-align:center; color:var(--muted); margin-top: 30px;">Adicione sua primeira Salada!</p>
+            </div>
+            
+            <div class="resumo-box animate">
+                <strong>Resumo Detalhado (Para o WhatsApp):</strong>
+                <div id="resumoContent" class="resumo-content">Nenhuma Salada adicionada.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-bar">
+        <span id="footerTotal" class="footer-total-price">TOTAL: R$0,00</span>
+        <button id="footerConfirmar" class="btn confirmar" disabled>CONFIRMAR PEDIDO</button>
+    </footer>
+
+
+    <div class="modal-overlay" id="customizationModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-content" id="customizationContent" role="document">
+          <div class="modal-header">
+              <h3 id="modalTitle">Personalizar Salada</h3>
+              <button class="btn excluir" id="closeModal" aria-label="Fechar Modal">X</button>
+          </div>
+
+          <div class="salada-box card">
+              <div class="grupo-opcoes">
+                  <h4 class="categoria-title">🥗 Tamanho</h4>
+                  <div class="opcoes opcoes-tamanho" id="tamanhosOpcoes"></div>
+              </div>
+              
+              <div class="grupo-opcoes">
+                  <h4 class="categoria-title">➡️ Escolha as Frutas (Máx 5 - Grátis)</h4>
+                  <div class="opcoes opcoes-frutas" id="frutasOpcoes"></div>
+              </div>
+
+              <div class="grupo-opcoes">
+                  <h4 class="categoria-title">➕ Adicionais de Frutas (Máx. 2 - R$2,00 cada)</h4>
+                  <div class="opcoes opcoes-extras" id="extrasOpcoes"></div>
+              </div>
+
+              <div class="grupo-opcoes">
+                  <h4 class="categoria-title">➡️ Acompanhamentos (Grátis)</h4>
+                  <div class="opcoes opcoes-acomp" id="acompOpcoes"></div>
+              </div>
+
+              <label class="campo"><span class="label">Observações</span>
+                  <textarea class="obs" id="obsInput" rows="2" placeholder="Ex.: Salada sem mel, mais granola..."></textarea>
+              </label>
+              
+              <div class="preview-box">
+                  <p><strong>Resumo da Sua Escolha:</strong></p>
+                  <div id="modalResumo" class="resumo-content">Selecione um tamanho para começar.</div>
+              </div>
+
+              <button id="addToOrder" class="btn adicionar">Adicionar ao Pedido - <span id="modalTotal">R$0,00</span></button>
+          </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutTitle">
+        <div class="modal-content" id="checkoutContent" role="document">
+            <div class="modal-header">
+                <h3 id="checkoutTitle">Finalizar Pedido</h3>
+                <button class="btn excluir" id="closeCheckoutModal" aria-label="Fechar Modal">X</button>
+            </div>
+
+            <div class="checkout-box">
+                
+                <div class="fidelity-card-container">
+                    <h4>⭐ Cartão Fidelidade Tropicana</h4>
+                    <div class="seals-grid" id="sealsGrid">
+                        </div>
+                    <p class="fidelity-message" id="fidelityMessage">Faltam X pedidos...</p>
+                </div>
+                
+                <h4 style="margin-top: 30px;">Detalhes da Entrega e Contato</h4>
+                
+                <label class="campo"><span class="label">Seu Nome Completo</span>
+                    <input type="text" id="checkoutNameInput" placeholder="Ex: João da Silva" required>
+                </label>
+                
+                <label class="campo"><span class="label">Seu Telefone (WhatsApp)</span>
+                    <input type="tel" id="checkoutPhoneInput" placeholder="Ex: 65999999999" required>
+                </label>
+                
+                <label class="campo"><span class="label">Seu Bairro para Entrega</span>
+                    <input type="text" id="checkoutNeighborhoodInput" placeholder="Ex: Centro" required>
+                </label>
+                
+                <button id="checkoutConfirmarBtn" class="btn confirmar" style="margin-top: 20px;">
+                    Finalizar Pedido e Enviar no WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
