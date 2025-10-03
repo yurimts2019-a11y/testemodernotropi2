@@ -37,532 +37,101 @@ textarea:focus,
     background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1); 
     margin-bottom: 20px;
-    position: relative; 
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 0 0 12px 12px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 60px; /* Espaço para o logo circular */
 }
 
 .top-bar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 16px;
-    background: transparent; 
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10; 
+    padding: 10px 15px;
+    background: var(--orange);
+    color: #fff;
 }
 
 .menu-btn, .search-btn {
-    background: #fff; 
+    background: none;
     border: none;
-    font-size: 18px;
+    color: #fff;
+    font-size: 1.2em;
     cursor: pointer;
-    color: #333;
-    padding: 8px;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-.search-btn { color: #f44336; } 
 
 .banner-image {
     width: 100%;
     height: 180px; 
-    overflow: hidden; 
-    position: relative;
-    background-color: #eee; 
-    border-radius: 12px 12px 0 0;
+    overflow: hidden;
 }
 
 .banner-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    display: block;
-}
-
-/* LOGO: 120PX E POSIÇÃO AJUSTADA */
-.logo-circle {
-    width: 120px; 
-    height: 120px; 
-    border-radius: 50%;
-    overflow: hidden;
-    
-    position: absolute; 
-    top: 120px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    
-    z-index: 15; 
-    border: 4px solid #fff; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
-    background-color: #eee; 
-}
-
-.logo-circle img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-/* BLOCO DE INFORMAÇÕES DA LOJA COM ESPAÇO AJUSTADO */
+.logo-circle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .store-info {
-    text-align: center;
-    padding: 0 16px 20px; 
-    position: relative;
-    
-    margin-top: 0; 
-    padding-top: 55px; 
-    
-    z-index: 5; 
-    background: #fff; 
+    padding-top: 70px; /* Ajuste para o logo */
+    padding-bottom: 15px;
 }
 
 .store-name {
-    font-size: 24px;
-    margin: 10px 0 5px;
-    color: #333;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--brown);
+    margin: 0 0 5px 0;
 }
 
-/* Status: Mudei a cor de fundo para ser mais neutra e o texto mais vibrante */
 .store-status {
-    background: #fff3e0; 
-    color: var(--orange);
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
     display: inline-block;
-    font-size: 13px;
-    margin-bottom: 15px;
-    animation: pulseStatus 1.5s infinite alternate; /* Novo efeito sutil */
-}
-
-@keyframes pulseStatus {
-    from { background-color: #fff3e0; }
-    to { background-color: #ffe0b2; } /* Uma cor levemente mais escura */
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    /* Cores definidas no JS para Aberto/Fechado */
 }
 
 .delivery-details {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    font-size: 14px;
     color: var(--muted);
+    font-size: 0.85em;
 }
-.delivery-details .more-details {
-    color: var(--blue);
-    text-decoration: none;
-    font-weight: 600;
+
+.delivery-details span {
+    margin: 0 10px;
 }
-/* FIM DO HEADER CSS */
+
 
 /* ======================================= */
-/* Estilos do Menu e Pedidos */
+/* ESTILOS GERAIS E LAYOUT */
 /* ======================================= */
-.menu h2{
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  margin: 0 0 16px 0;
-}
-.cards{display:flex;flex-direction:column;gap:14px}
-.card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);display:flex;flex-direction:column;animation:fadeSlide .6s ease}
-.card-top{display:flex;align-items:center;gap:12px; justify-content: space-between;}
-.card-img{width:72px;height:72px;border-radius:10px;object-fit:cover;background:#fff;border:1px solid #f0f0f0;padding:6px; flex-shrink: 0;}
-.card-title{flex-grow: 1;}
-.card-title h3{margin:0;font-size:16px}
-.card-title .salada-number{background:var(--accent);padding:4px 8px;border-radius:8px;color:#333;margin-left:8px;font-weight:600;font-size:13px}
 
-.card-body{margin-top:8px;display:flex;flex-direction:column;gap:10px}
-.card-total{text-align: right; margin-top: 10px; font-size: 16px;}
-.campo{display:flex;flex-direction:column;gap:6px; margin-bottom: 15px;} /* Adicionado margin-bottom */
-.campo .label{font-weight:600;color:var(--muted);font-size:13px}
-select,textarea, input[type="text"], input[type="number"], input[type="tel"]{padding:10px;border-radius:8px;border:1px solid #e6e6e6;font-size:14px;transition:all .3s ease; width: 100%;}
-input[type="number"] { width: 100px; text-align: center; } /* Mantido o ajuste do number */
-
-/* ======================================= */
-/* Cards de Seleção de Tamanho na Tela Principal */
-/* ======================================= */
-.size-selection-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-.size-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: var(--card);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border: 2px solid #fff;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.size-card:active {
-  transform: scale(0.98);
-}
-
-.size-card:hover {
-    border-color: var(--blue);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.size-info h4 {
-    margin: 0;
-    font-size: 18px;
-    color: #333;
-}
-
-.size-info p {
-    margin: 0;
-    font-size: 13px;
-    color: var(--muted);
-}
-
-.size-price {
+h2 {
+    font-size: 1.3em;
     font-weight: 700;
-    font-size: 20px;
     color: var(--orange);
-}
-/* FIM DO NOVO ESTILO */
-
-
-/* ======================================= */
-/* Chips Modernos e Coloridos (Modal) */
-/* ======================================= */
-
-/* NOVO: Espaçamento entre grupos de opções no modal */
-.modal-content .salada-box .grupo-opcoes {
-    margin-bottom: 20px; 
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #eee;
-}
-/* NOVO: Remove a borda e padding do último item para não ter separação dupla com a observação */
-.modal-content .salada-box .grupo-opcoes:last-of-type {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 15px; 
-}
-
-
-.opcoes {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 10px; 
-    margin-bottom: 0; /* Removido margem desnecessária aqui */
-}
-
-.opcoes input[type="checkbox"],
-.opcoes input[type="radio"] {
-    position: absolute !important; 
-    opacity: 0 !important; 
-    pointer-events: none !important; 
-    width: 0 !important; 
-    height: 0 !important;
-    margin: 0 !important;
-}
-
-.opcoes label {
-    display: inline-block;
-    padding: 0; 
-    margin: 0;
-    cursor: pointer;
-    background: transparent;
-    transition: all 0.2s ease;
-}
-
-.chip-content {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px; 
-    border: 2px solid #ddd;
-    border-radius: 999px; 
-    font-size: 15px;
-    font-weight: 500;
-    color: #444;
-    background-color: #f9f9f9;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
-}
-
-.opcoes label:hover .chip-content {
-    border-color: var(--blue); 
-    background-color: #fff;
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-.chip-price {
-    font-weight: 700;
-    color: var(--orange); 
-    font-size: 14px;
-    margin-left: 5px; 
-}
-
-
-/* ESTADO SELECIONADO (CHECKED) */
-.opcoes input:checked + .chip-content {
-    color: #fff !important; 
-    font-weight: 600;
-    transform: scale(1.02); 
-    box-shadow: 0 0 15px rgba(0,0,0,0.2); 
-}
-
-.opcoes input:checked + .chip-content .chip-price {
-    color: #fff !important; 
-    opacity: 0.8;
-}
-
-/* Cores específicas por grupo */
-
-/* Tamanho (rádio) - Roxo */
-.opcoes-tamanho input:checked + .chip-content { 
-    background-color: #9c27b0 !important; 
-    border-color: #9c27b0 !important;
-}
-
-/* Frutas (checkbox) - Laranja */
-.opcoes-frutas input:checked + .chip-content { 
-    background-color: var(--orange) !important; 
-    border-color: var(--orange) !important;
-}
-
-/* Extras (checkbox) - Azul */
-.opcoes-extras input:checked + .chip-content { 
-    background-color: var(--blue) !important; 
-    border-color: var(--blue) !important;
-}
-
-/* Acompanhamentos (checkbox) - Verde */
-.opcoes-acomp input:checked + .chip-content { 
-    background-color: var(--green) !important; 
-    border-color: var(--green) !important;
-}
-
-
-/* ESTADO DESABILITADO (LIMITE ATINGIDO) */
-.opcoes label.disabled .chip-content {
-    opacity: 0.5;
-    cursor: not-allowed;
-    border-color: #f0f0f0 !important;
-    background-color: #f9f9f9 !important;
-    box-shadow: none !important;
-    transform: none !important;
-}
-
-.opcoes label.disabled:hover .chip-content {
-    border-color: #f0f0f0 !important;
-    transform: none !important;
-    box-shadow: none !important;
-}
-/* FIM DO NOVO ESTILO DE CHIP */
-/* ======================================= */
-
-.preview-box{background:#fff8dc;border:1px dashed #e6d9b3;padding:8px;border-radius:8px;font-size:13px;color:#333;transition:all .3s ease}
-
-.btn{font-weight:700;padding:14px;border-radius:12px;border:none;cursor:pointer;width:100%;margin-top:10px;font-size:16px;transition:all .3s ease}
-.btn.adicionar{background:var(--blue);color:#fff}
-.btn.confirmar{background:var(--green);color:#fff;animation:pulse 3s infinite}
-.btn.excluir{background:#f44336;color:#fff;border-radius:8px;padding:8px 10px;width:auto;margin-top:0;transition:all .3s ease}
-
-@keyframes pulse{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.05)}
-  100%{transform:scale(1)}
-}
-
-@keyframes fadeSlide {
-  0% {opacity:0; transform:translateY(20px)}
-  100% {opacity:1; transform:translateY(0)}
-}
-
-.resumo-box{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.06);margin-top:20px;animation:fadeSlide .5s ease}
-.resumo-box strong{display:block;margin-bottom:8px}
-.resumo-content{font-size:15px;color:#333;white-space:pre-line}
-.resumo-content b{font-weight:700;color:#000}
-.resumo-total{color:var(--orange);font-weight:700;font-size:20px;margin-top:8px;display:block;text-align:center;animation:fadeSlide .6s ease}
-
-/* Barra fixa */
-.footer-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 16px; 
-    background: #fff;
-    
-    /* Arredondamento e Sombra */
-    border-radius: 12px 12px 0 0; 
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); 
-    border-top: none; 
-    
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    animation: fadeSlide .8s ease;
-    
-    max-width: var(--max-width);
-    margin: 0 auto; 
-}
-
-/* NOVO: Classe específica para o total */
-.footer-total-price {
-    font-weight: 700;
-    font-size: 18px;
-    color: var(--orange);
-}
-
-.container{padding-bottom:100px} /* Aumentei o padding para o footer-bar caber */
-
-/* Estilos do Modal (não alterados) */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.modal-overlay.open {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-content {
-    background: #fff;
-    border-radius: 12px;
-    max-width: 500px;
-    width: 90%;
-    max-height: 90vh;
-    padding: 20px;
-    overflow-y: auto;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transform: translateY(20px); 
-    transition: opacity 0.3s ease, transform 0.3s ease; 
-}
-
-.modal-overlay.open .modal-content {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-.modal-header h3 {
-    margin: 0;
-    font-size: 20px;
-}
-
-.modal-header .btn.excluir {
-    padding: 4px 8px;
-    font-size: 16px;
-    width: auto;
-    margin: 0;
-}
-
-.modal-content .salada-box {
-    box-shadow: none;
-    padding: 0;
-    animation: none;
-}
-
-/* ======================================= */
-/* ESTILOS DO CARTÃO FIDELIDADE */
-/* ======================================= */
-.fidelity-card-container {
-    background-color: #f7e191; /* Cor de fundo do cartão (amarelo claro) */
-    border: 3px solid var(--orange); /* Borda laranja */
-    border-radius: 10px;
-    padding: 15px;
-    margin-top: 20px;
-    text-align: center;
-}
-.fidelity-card-container h4 {
-    color: var(--brown);
-    margin-top: 0;
-    font-size: 1.1em;
-}
-.seals-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 colunas */
-    gap: 10px;
-    margin: 15px 0;
-}
-.seal {
-    width: 100%;
-    padding-top: 100%; /* Para ser um quadrado */
-    position: relative;
-    background-color: #ffe0b2; /* Fundo do selo vazio */
-    border-radius: 50%;
-    border: 1px dashed var(--orange);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9em;
-    color: var(--brown);
-    transition: all 0.3s ease;
-}
-.seal span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.seal.completed {
-    background-color: var(--green); /* Cor do selo completo (verde) */
-    border-color: #2e7d32;
-    color: white;
-    font-size: 1.2em;
-    box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
-}
-.seal.reward {
-    background-color: #e53935; /* Cor do selo de recompensa (vermelho) */
-    border-color: #c62828;
-    color: white;
-    font-size: 1.6em; /* Aumentei o troféu */
-    box-shadow: 0 0 8px rgba(198, 40, 40, 0.7);
-}
-.fidelity-message {
-    margin-top: 10px;
-    font-weight: 600;
-    color: var(--brown);
-    animation: pulse-message 1.5s infinite;
-}
-
-@keyframes pulse-message {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-}
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffefe
